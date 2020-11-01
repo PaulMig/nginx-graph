@@ -62,6 +62,10 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
             php7.4-xml \
             php-pear \
     && pecl -d php_suffix=7.4 install -o -f redis memcached \
+    && mkdir -p /home/script-pyton\
+    && mkdir -p /home/script-php\
+    && mkdir -p /home/json-result\
+    && mkdir -p /home/database\
     && mkdir -p /run/php \
     && pip install wheel \
     && pip install supervisor supervisor-stdout \
