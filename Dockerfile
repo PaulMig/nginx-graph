@@ -66,6 +66,7 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
     && mkdir -p /home/script-php\
     && mkdir -p /home/json-result\
     && mkdir -p /home/database\
+    && mkdir -p /home/domoticz\
     && mkdir -p /run/php \
     && pip install wheel \
     && pip install supervisor supervisor-stdout \
