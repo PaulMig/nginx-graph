@@ -14,6 +14,7 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
     && set -x \
     && apt-get update \
     && apt-get install --no-install-recommends $buildDeps --no-install-suggests -q -y gnupg2 dirmngr wget apt-transport-https lsb-release ca-certificates \
+    && \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
 	  found=''; \
 	  for server in \
@@ -36,8 +37,6 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
             zip \
             unzip \
             python-pip \
-	    phyton3-pip \
-            python-setuptools \
             git \
             libmemcached-dev \
             libmemcached11 \
@@ -61,7 +60,6 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
             php7.4-intl \
             php7.4-xml \
             php-pear \  
-    && pip3 install suntime \
     && pecl -d php_suffix=7.4 install -o -f redis memcached \
     && mkdir -p -m 777 /home/script-pyton\
     && mkdir -p -m 777 /home/script-php\
@@ -71,6 +69,7 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
     && mkdir -p /run/php \
     && pip install wheel \
     && pip install supervisor supervisor-stdout \
+    && pip install suntime \
     && echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d \
     && rm -rf /etc/nginx/conf.d/default.conf \
     && sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" ${php_conf} \
