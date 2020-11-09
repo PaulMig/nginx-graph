@@ -37,6 +37,7 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
             zip \
             unzip \
             python-pip \
+	    phyton3-pip \
             python-setuptools \
             git \
             libmemcached-dev \
@@ -61,6 +62,7 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
             php7.4-intl \
             php7.4-xml \
             php-pear \
+    && pip python3-tools \    
     && pecl -d php_suffix=7.4 install -o -f redis memcached \
     && mkdir -p -m 777 /home/script-pyton\
     && mkdir -p -m 777 /home/script-php\
