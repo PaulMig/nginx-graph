@@ -37,6 +37,7 @@ RUN buildDeps='curl gcc make autoconf libc-dev zlib1g-dev pkg-config' \
             zip \
             unzip \
             python-pip \
+	    python-setuptools \
             git \
             libmemcached-dev \
             libmemcached11 \
